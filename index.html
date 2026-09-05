@@ -1,50 +1,69 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#eaf3ff">
-  <meta name="description" content="Aarvik Sharma's 1st Birthday Invitation — 22nd September 2026, 6:00 PM onwards, Hotel Ramta Continental, Patna.">
-  <meta property="og:title" content="Aarvik Sharma — 1st Birthday 🎂">
-  <meta property="og:description" content="You're invited! Tap the invitation to view the location on Google Maps.">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="assets/invitation.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <title>Aarvik Sharma — 1st Birthday 🎂</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#eaf3ff">
+<meta name="description" content="Aarvik Sharma's 1st Birthday Invitation">
+<meta property="og:title" content="Aarvik Sharma — 1st Birthday 🎂">
+<meta property="og:description" content="22nd September 2026 · 6:00 PM onwards · Hotel Ramta Continental, Patna">
+<meta property="og:image" content="assets/invitation.png">
+<title>Aarvik Sharma — 1st Birthday 🎂</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="page">
-    <div class="invitation-wrap">
-      <img class="invitation" src="assets/invitation.png" alt="Aarvik Sharma's 1st birthday invitation">
-      <!-- Transparent clickable area positioned over the map button in the invitation image. -->
-      <a class="map-hotspot"
-         href="https://www.google.com/maps/dir//Hotel+Ramta+Continental+%7C+Best+Hotels+in+Patna,+Hotel+Ramta+Continental,+St.+Karen's+Secondary+School,+Balaji+Nagar,+Patna,+Bihar+801503/@25.6149375,85.0545187,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x39ed57001b39b7e9:0x99b1b18a6dec1383!2m2!1d85.0417788!2d25.6105733?entry=ttu&g_ep=EgoyMDI2MDkwMi4wIKXMDSoASAFQAw%3D%3D"
-         target="_blank"
-         rel="noopener noreferrer"
-         aria-label="Open Hotel Ramta Continental in Google Maps">
-        <span class="sr-only">View location on Google Maps</span>
-      </a>
+<main>
+  <section class="hero">
+    <div class="countdown-title">🎂 Aarvik Turns ONE!</div>
+    <div id="countdown" class="countdown" aria-live="polite">
+      <div><span id="days">--</span><small>Days</small></div>
+      <div><span id="hours">--</span><small>Hours</small></div>
+      <div><span id="minutes">--</span><small>Minutes</small></div>
+      <div><span id="seconds">--</span><small>Seconds</small></div>
     </div>
+  </section>
 
-    <p class="hint">Tap <strong>VIEW LOCATION ON MAP</strong> to open Google Maps 📍</p>
+  <section class="invitation-wrap">
+    <img src="assets/invitation.png" alt="Aarvik Sharma's first birthday invitation">
+    <a class="map-hotspot" href="https://www.google.com/maps/dir//Hotel+Ramta+Continental+%7C+Best+Hotels+in+Patna,+Hotel+Ramta+Continental,+St.+Karen's+Secondary+School,+Balaji+Nagar,+Patna,+Bihar+801503/@25.6149375,85.0545187,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x39ed57001b39b7e9:0x99b1b18a6dec1383!2m2!1d85.0417788!2d25.6105733?entry=ttu&g_ep=EgoyMDI2MDkwMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer"
+       aria-label="View location on Google Maps"></a>
+  </section>
 
-    <a class="fallback-button"
-       href="https://www.google.com/maps/dir//Hotel+Ramta+Continental+%7C+Best+Hotels+in+Patna,+Hotel+Ramta+Continental,+St.+Karen's+Secondary+School,+Balaji+Nagar,+Patna,+Bihar+801503/@25.6149375,85.0545187,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x39ed57001b39b7e9:0x99b1b18a6dec1383!2m2!1d85.0417788!2d25.6105733?entry=ttu&g_ep=EgoyMDI2MDkwMi4wIKXMDSoASAFQAw%3D%3D"
-       target="_blank"
-       rel="noopener noreferrer">
-      📍 Open Location in Google Maps
-    </a>
-  </main>
+  <a class="map-button" href="https://www.google.com/maps/dir//Hotel+Ramta+Continental+%7C+Best+Hotels+in+Patna,+Hotel+Ramta+Continental,+St.+Karen's+Secondary+School,+Balaji+Nagar,+Patna,+Bihar+801503/@25.6149375,85.0545187,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x39ed57001b39b7e9:0x99b1b18a6dec1383!2m2!1d85.0417788!2d25.6105733?entry=ttu&g_ep=EgoyMDI2MDkwMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">
+    📍 View Location on Google Maps
+  </a>
 
-  <script>
-    // Small accessibility helper: pressing Enter on the invitation wrapper
-    // follows the same map link when focused.
-    document.querySelector('.invitation-wrap').addEventListener('keydown', function(e) {
-      if (e.key === 'Enter') {
-        document.querySelector('.map-hotspot').click();
-      }
-    });
-  </script>
+  <p class="footer">We can't wait to celebrate with you! 💙</p>
+</main>
+
+<script>
+const eventDate = new Date("2026-09-22T18:00:00+05:30").getTime();
+
+function updateCountdown() {
+  const now = Date.now();
+  let diff = eventDate - now;
+
+  if (diff <= 0) {
+    document.getElementById("countdown").innerHTML =
+      '<div class="birthday-message">🎉 Today is Aarvik’s BIG DAY! 🎉</div>';
+    return;
+  }
+
+  const days = Math.floor(diff / 86400000);
+  diff %= 86400000;
+  const hours = Math.floor(diff / 3600000);
+  diff %= 3600000;
+  const minutes = Math.floor(diff / 60000);
+  const seconds = Math.floor((diff % 60000) / 1000);
+
+  document.getElementById("days").textContent = days;
+  document.getElementById("hours").textContent = String(hours).padStart(2, "0");
+  document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
+  document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+</script>
 </body>
 </html>
