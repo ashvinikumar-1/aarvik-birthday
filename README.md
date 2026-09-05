@@ -1,17 +1,20 @@
-# Aarvik Birthday Invitation — GitHub Pages
+# Aarvik Sharma 1st Birthday — Animated GitHub Pages Invitation
 
-This site uses the invitation image and includes:
-- Live countdown to **22 September 2026 at 6:00 PM IST**
-- Clickable **VIEW LOCATION ON MAP** area on the invitation
-- Backup Google Maps button
+This version fixes image cropping by using the invitation at its natural aspect ratio (`width: 100%; height: auto`) and adds:
+- Live countdown to 22 September 2026, 6:00 PM IST
+- Animated entrance
+- Floating balloons
+- Falling sparkle/confetti effect
+- Pulsing Google Maps button
+- Clickable map area over the original invitation button
 - Mobile-friendly layout
 - WhatsApp/social preview metadata
 
 ## Publish
 
-1. Create a public GitHub repository, e.g. `aarvik-birthday`.
-2. Upload `index.html`, `style.css`, and the `assets` folder.
-3. GitHub: **Settings → Pages → Deploy from a branch → main → / (root) → Save**.
-4. Your URL will be `https://YOUR-USERNAME.github.io/aarvik-birthday/`.
+Upload `index.html`, `style.css`, and the `assets` folder to the root of the GitHub repository.
 
-The countdown uses India Standard Time (UTC+05:30).
+Then:
+**Settings → Pages → Deploy from a branch → main → / (root) → Save**
+
+The countdown is set to India Standard Time (UTC+05:30).

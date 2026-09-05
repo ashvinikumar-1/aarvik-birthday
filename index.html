@@ -3,67 +3,80 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#eaf3ff">
-<meta name="description" content="Aarvik Sharma's 1st Birthday Invitation">
+<meta name="theme-color" content="#dcecff">
+<meta name="description" content="Aarvik Sharma's 1st Birthday — 22 September 2026 at 6:00 PM">
 <meta property="og:title" content="Aarvik Sharma — 1st Birthday 🎂">
-<meta property="og:description" content="22nd September 2026 · 6:00 PM onwards · Hotel Ramta Continental, Patna">
+<meta property="og:description" content="22 September 2026 · 6:00 PM onwards · Hotel Ramta Continental, Patna">
 <meta property="og:image" content="assets/invitation.png">
 <title>Aarvik Sharma — 1st Birthday 🎂</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="sparkles"></div>
+<div class="balloon b1">🎈</div><div class="balloon b2">🎈</div>
+<div class="balloon b3">🎈</div><div class="balloon b4">🎈</div>
+
 <main>
-  <section class="hero">
-    <div class="countdown-title">🎂 Aarvik Turns ONE!</div>
+  <header class="top">
+    <div class="eyebrow">✨ YOU'RE INVITED ✨</div>
+    <h1>Aarvik Turns ONE! 🎂</h1>
+    <p class="date">Tuesday, 22nd September 2026 · 6:00 PM onwards</p>
     <div id="countdown" class="countdown" aria-live="polite">
-      <div><span id="days">--</span><small>Days</small></div>
-      <div><span id="hours">--</span><small>Hours</small></div>
-      <div><span id="minutes">--</span><small>Minutes</small></div>
-      <div><span id="seconds">--</span><small>Seconds</small></div>
+      <div><strong id="days">--</strong><span>Days</span></div>
+      <div><strong id="hours">--</strong><span>Hours</span></div>
+      <div><strong id="minutes">--</strong><span>Minutes</span></div>
+      <div><strong id="seconds">--</strong><span>Seconds</span></div>
+    </div>
+  </header>
+
+  <section class="card">
+    <div class="image-stage">
+      <img src="assets/invitation.png" alt="Aarvik Sharma's first birthday invitation">
+      <a class="map-hotspot" href="https://www.google.com/maps/dir//Hotel+Ramta+Continental+%7C+Best+Hotels+in+Patna,+Hotel+Ramta+Continental,+St.+Karen's+Secondary+School,+Balaji+Nagar,+Patna,+Bihar+801503/@25.6149375,85.0545187,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x39ed57001b39b7e9:0x99b1b18a6dec1383!2m2!1d85.0417788!2d25.6105733?entry=ttu&g_ep=EgoyMDI2MDkwMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer"
+         aria-label="View location on Google Maps"></a>
     </div>
   </section>
 
-  <section class="invitation-wrap">
-    <img src="assets/invitation.png" alt="Aarvik Sharma's first birthday invitation">
-    <a class="map-hotspot" href="https://www.google.com/maps/dir//Hotel+Ramta+Continental+%7C+Best+Hotels+in+Patna,+Hotel+Ramta+Continental,+St.+Karen's+Secondary+School,+Balaji+Nagar,+Patna,+Bihar+801503/@25.6149375,85.0545187,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x39ed57001b39b7e9:0x99b1b18a6dec1383!2m2!1d85.0417788!2d25.6105733?entry=ttu&g_ep=EgoyMDI2MDkwMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer"
-       aria-label="View location on Google Maps"></a>
-  </section>
-
   <a class="map-button" href="https://www.google.com/maps/dir//Hotel+Ramta+Continental+%7C+Best+Hotels+in+Patna,+Hotel+Ramta+Continental,+St.+Karen's+Secondary+School,+Balaji+Nagar,+Patna,+Bihar+801503/@25.6149375,85.0545187,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x39ed57001b39b7e9:0x99b1b18a6dec1383!2m2!1d85.0417788!2d25.6105733?entry=ttu&g_ep=EgoyMDI2MDkwMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">
-    📍 View Location on Google Maps
+    📍 VIEW LOCATION ON MAP
   </a>
 
-  <p class="footer">We can't wait to celebrate with you! 💙</p>
+  <p class="tip">Tap the map button above for directions to the venue.</p>
 </main>
 
 <script>
-const eventDate = new Date("2026-09-22T18:00:00+05:30").getTime();
+const eventTime = new Date("2026-09-22T18:00:00+05:30").getTime();
 
-function updateCountdown() {
-  const now = Date.now();
-  let diff = eventDate - now;
-
-  if (diff <= 0) {
+function tick() {
+  let d = eventTime - Date.now();
+  if (d <= 0) {
     document.getElementById("countdown").innerHTML =
-      '<div class="birthday-message">🎉 Today is Aarvik’s BIG DAY! 🎉</div>';
+      '<div class="today">🎉 TODAY IS AARVIK’S BIG DAY! 🎉</div>';
     return;
   }
-
-  const days = Math.floor(diff / 86400000);
-  diff %= 86400000;
-  const hours = Math.floor(diff / 3600000);
-  diff %= 3600000;
-  const minutes = Math.floor(diff / 60000);
-  const seconds = Math.floor((diff % 60000) / 1000);
-
+  const days = Math.floor(d / 86400000); d %= 86400000;
+  const hours = Math.floor(d / 3600000); d %= 3600000;
+  const mins = Math.floor(d / 60000); d %= 60000;
+  const secs = Math.floor(d / 1000);
   document.getElementById("days").textContent = days;
-  document.getElementById("hours").textContent = String(hours).padStart(2, "0");
-  document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
-  document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
+  document.getElementById("hours").textContent = String(hours).padStart(2,"0");
+  document.getElementById("minutes").textContent = String(mins).padStart(2,"0");
+  document.getElementById("seconds").textContent = String(secs).padStart(2,"0");
 }
+tick();
+setInterval(tick,1000);
 
-updateCountdown();
-setInterval(updateCountdown, 1000);
+// Lightweight animated confetti/sparkles.
+const layer = document.querySelector(".sparkles");
+for (let i=0;i<32;i++) {
+  const s=document.createElement("i");
+  s.style.left=(Math.random()*100)+"vw";
+  s.style.top=(-10-Math.random()*40)+"px";
+  s.style.animationDelay=(Math.random()*6)+"s";
+  s.style.animationDuration=(5+Math.random()*5)+"s";
+  s.style.setProperty("--drift",(Math.random()*120-60)+"px");
+  layer.appendChild(s);
+}
 </script>
 </body>
 </html>

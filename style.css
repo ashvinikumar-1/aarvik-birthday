@@ -1,43 +1,86 @@
 *{box-sizing:border-box}
-html,body{margin:0;min-height:100%}
+html{scroll-behavior:smooth}
 body{
-  background:linear-gradient(180deg,#eef7ff,#dcecff);
-  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  color:#17366d;
+ margin:0; min-height:100vh; overflow-x:hidden;
+ font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+ color:#183b72;
+ background:
+   radial-gradient(circle at 20% 10%,rgba(255,255,255,.9),transparent 32%),
+   radial-gradient(circle at 85% 20%,rgba(190,220,255,.65),transparent 30%),
+   linear-gradient(180deg,#eaf5ff 0%,#d9ebff 55%,#f8fbff 100%);
 }
-main{min-height:100vh;padding:18px 12px 35px;display:flex;flex-direction:column;align-items:center}
-.hero{text-align:center;margin:2px auto 18px}
-.countdown-title{font-size:clamp(20px,4vw,30px);font-weight:800;margin-bottom:10px}
-.countdown{display:flex;gap:8px;justify-content:center}
+main{position:relative;z-index:2;width:100%;max-width:900px;margin:auto;padding:24px 14px 45px}
+.top{text-align:center;animation:fadeDown .9s ease both}
+.eyebrow{font-size:12px;letter-spacing:3px;font-weight:800;opacity:.72}
+h1{margin:7px 0 5px;font-size:clamp(27px,6vw,44px);line-height:1.1}
+.date{margin:0 0 16px;font-size:clamp(13px,3vw,17px);font-weight:650}
+.countdown{display:flex;justify-content:center;gap:9px;margin-bottom:20px}
 .countdown>div{
-  min-width:66px;padding:8px 6px;border-radius:14px;
-  background:rgba(255,255,255,.82);
-  box-shadow:0 5px 18px rgba(30,70,120,.13);
+ min-width:70px;padding:10px 8px;border-radius:17px;
+ background:rgba(255,255,255,.88);backdrop-filter:blur(7px);
+ box-shadow:0 8px 24px rgba(45,92,150,.15);
+ animation:float 3.5s ease-in-out infinite;
 }
-.countdown span{display:block;font-size:clamp(22px,5vw,30px);font-weight:800;line-height:1.05}
-.countdown small{font-size:11px;opacity:.72}
-.birthday-message{font-size:20px;font-weight:800;padding:12px 18px}
-.invitation-wrap{
-  position:relative;width:min(100%,768px);line-height:0;
-  border-radius:12px;overflow:hidden;background:#fff;
-  box-shadow:0 12px 38px rgba(30,70,120,.18);
+.countdown>div:nth-child(2){animation-delay:.2s}
+.countdown>div:nth-child(3){animation-delay:.4s}
+.countdown>div:nth-child(4){animation-delay:.6s}
+.countdown strong{display:block;font-size:clamp(22px,5vw,32px);line-height:1}
+.countdown span{display:block;margin-top:5px;font-size:10px;text-transform:uppercase;letter-spacing:.7px;opacity:.68}
+.today{font-weight:850;font-size:clamp(18px,4vw,26px);padding:10px 18px}
+.card{
+ width:100%; display:flex;justify-content:center;
+ animation:zoomIn 1s cubic-bezier(.2,.8,.2,1) both;
 }
-.invitation{display:block;width:100%;height:auto}
+.image-stage{
+ position:relative; width:min(100%,768px); line-height:0;
+ border-radius:16px; overflow:hidden; background:#fff;
+ box-shadow:0 18px 55px rgba(31,76,130,.22);
+}
+.image-stage img{
+ display:block; width:100%; height:auto; /* never crop the invitation */
+}
 .map-hotspot{
-  position:absolute;left:33.5%;top:88.4%;width:34%;height:4.9%;
-  display:block;border-radius:999px;z-index:5;
+ position:absolute; left:33.5%; top:88.4%; width:34%; height:4.9%;
+ border-radius:999px; z-index:3;
 }
-.map-hotspot:hover{outline:3px solid rgba(34,113,190,.28)}
+.map-hotspot:hover{outline:4px solid rgba(35,117,189,.3)}
+.map-hotspot:active{background:rgba(35,117,189,.12)}
 .map-button{
-  margin-top:16px;min-height:48px;padding:0 22px;
-  display:inline-flex;align-items:center;justify-content:center;
-  border-radius:999px;background:#2375bd;color:white;text-decoration:none;
-  font-weight:750;box-shadow:0 6px 18px rgba(35,117,189,.25)
+ margin:18px auto 0; display:flex; width:min(100%,360px); min-height:52px;
+ align-items:center;justify-content:center;border-radius:999px;
+ background:#2375bd;color:white;text-decoration:none;font-weight:850;
+ letter-spacing:.3px; box-shadow:0 9px 25px rgba(35,117,189,.3);
+ animation:pulse 2.3s ease-in-out infinite;
 }
-.footer{font-size:14px;margin:13px 0 0;text-align:center}
+.map-button:hover{transform:translateY(-2px)}
+.tip{text-align:center;margin:10px 0 0;font-size:12px;opacity:.7}
+.balloon{position:fixed;z-index:1;font-size:48px;opacity:.6;pointer-events:none}
+.b1{left:2%;top:18%;animation:balloon 6s ease-in-out infinite}
+.b2{right:3%;top:30%;animation:balloon 7s ease-in-out 1s infinite}
+.b3{left:5%;bottom:12%;font-size:38px;animation:balloon 8s ease-in-out 2s infinite}
+.b4{right:6%;bottom:16%;font-size:38px;animation:balloon 7s ease-in-out .5s infinite}
+.sparkles{position:fixed;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+.sparkles i{
+ position:absolute;width:6px;height:10px;border-radius:3px;
+ background:rgba(42,111,180,.45);
+ animation:fall linear infinite;
+}
+@keyframes fall{
+ from{transform:translate3d(0,0,0) rotate(0)}
+ to{transform:translate3d(var(--drift),110vh,0) rotate(720deg)}
+}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-18px)}to{opacity:1;transform:none}}
+@keyframes zoomIn{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:none}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+@keyframes pulse{0%,100%{box-shadow:0 9px 25px rgba(35,117,189,.28)}50%{box-shadow:0 9px 32px rgba(35,117,189,.48)}}
+@keyframes balloon{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-18px) rotate(4deg)}}
 @media(max-width:520px){
-  main{padding:12px 0 25px}
-  .hero{padding:0 10px}
-  .invitation-wrap{width:100%;border-radius:0;box-shadow:none}
-  .countdown>div{min-width:60px}
+ main{padding:16px 0 35px}
+ .top{padding:0 10px}
+ .countdown>div{min-width:62px;padding:9px 5px}
+ .image-stage{border-radius:0;box-shadow:0 10px 30px rgba(31,76,130,.16)}
+ .map-button{width:calc(100% - 28px)}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*::before,*::after{animation:none!important;scroll-behavior:auto!important}
 }
